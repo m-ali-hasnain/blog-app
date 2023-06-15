@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <%= link_to 'Postify', root_path, class: 'navbar-brand
+'%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to 'Home', root_path, class: 'nav-link active', aria_current: 'page'%>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown me-auto">
+          <a class="nav-link dropdown-toggle"   id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= image_tag 'user.png', class: 'img-responsive', width: 30, height: 30%>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <% if defined?(current_user) %>
+              <li><%= link_to 'Profile', root_path, class: 'dropdown-item'%></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><%= link_to 'Logout', root_path, class: 'dropdown-item'%>
+              </li>
+            <% else %>
+              <li><%= link_to 'Register', root_path, class: 'dropdown-item'%>
+              </li>
+              <li><%= link_to 'Login', root_path, class: 'dropdown-item'%>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
